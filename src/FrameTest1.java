@@ -45,7 +45,28 @@ class FrameTest1 {
 		assertEquals(true, f1.isStrike());	
 		assertEquals(false, f1.isSpare());	
 	}
+	@Test
+	void test5() {
+		f1.setBall(0, 8);
+		f1.setBall(1, 2);
+		assertEquals(false, f1.isStrike());	
+		assertEquals(true, f1.isSpare());	
+	}
+	@Test
+	void test6() {
+		f1.setBall(0, 8);
+		f1.setBall(1, 2);
+		f1.setBall(2, 2);
+		assertEquals(false, f1.isStrike());	
+		assertEquals(true, f1.isSpare());	
+	}
 	
-	
-
+	@Test
+	void test7() {
+		f1.setBall(0, 8);
+		f1.setBall(1, 1);
+		f1.setBall(2, 2);
+		assertEquals(false, f1.isStrike());	
+		assertEquals(false, f1.isSpare());	
+	}
 }

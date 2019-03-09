@@ -42,9 +42,9 @@ public class BowlingGame {
 	
 	//roll a ball
 	public void roll(int pins) {
-		Frame frame = this.frames.get(currentRound);
 		//first 9 rounds
 		if(this.currentRound < 9) {
+			Frame frame = this.frames.get(currentRound);
 			frame.setBall(this.currentBall, pins);
 			this.currentBall = (this.currentBall + 1) % 2; // currentBall can be either 0 or 1
 			if(this.currentBall==0) {
@@ -52,6 +52,7 @@ public class BowlingGame {
 			}
 			// last round
 		} else if(this.currentRound == 9 && (this.currentBall ==0 || this.currentBall ==1)) {
+			Frame frame = this.frames.get(currentRound);
 			frame.setBall(this.currentBall, pins);
 			this.currentBall = (this.currentBall + 1) % 3; // currentBall can be either 0 or 1, or 2
 			if(this.currentBall==0) {
@@ -59,6 +60,7 @@ public class BowlingGame {
 			}
 			// last round
 		} else if(this.currentRound == 9 && this.currentBall ==2) {
+			Frame frame = this.frames.get(currentRound);
 			if(frame.isStrike() || frame.isSpare()) {
 				frame.setBall(this.currentBall, pins);
 				this.currentBall = (this.currentBall + 1) % 3; // currentBall can be either 0 or 1, or 2
