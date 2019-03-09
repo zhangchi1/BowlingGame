@@ -11,6 +11,13 @@ class BowlingGameTest1 {
 	BowlingGame G3 = new BowlingGame();
 	BowlingGame G4 = new BowlingGame();
 	
+	
+	@Test
+	void test0() {
+		assertEquals(0,G0.getScore());
+		G0.roll(0);
+		assertEquals(0,G0.getScore());
+	}
 
 	@Test
 	void test1() {
@@ -65,6 +72,7 @@ class BowlingGameTest1 {
 		G3.roll(6);
 		G3.roll(2);
 		assertEquals(8,G3.getScore());
+		
 		
 	}
 	@Test
@@ -153,7 +161,35 @@ class BowlingGameTest1 {
 		assertEquals(300,G4.getScore());
 		G4.roll(5);
 		});
+	}
+	
+	@Test
+	void test8() {
+		assertEquals(0,G0.getScore());
+		G0.roll(0);
+		assertEquals(0,G0.getScore());
+		G0.roll(10);
+		G0.roll(6);
+		assertEquals(22,G0.getScore());
 		
+	}
+	
+	
+	
+	
+	@Test
+	void test9() {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			// Testing to see that we can hit more than 10 pins at a time 
+			assertEquals(0,G0.getScore());
+			G0.roll(0);
+			assertEquals(0,G0.getScore());
+			G0.roll(10);
+			G0.roll(6);
+			assertEquals(22,G0.getScore());
+			G0.roll(6);
+			});
+
 	}
 	
 	
